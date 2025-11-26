@@ -22,4 +22,12 @@ def greet(info):
 
 required_user_info = ["name","age","city","profession","hobby"]
 User_input(required_user_info)
-print(greet(get_info))
+self_intro = greet(get_info)
+
+save = input("Do you want to save this in file y/n ? ")
+
+if save == 'y':
+    file_name = f"{get_info["name"].lower().replace(" ","_")}__bio.txt"
+    with open(file_name,'w',encoding="utf-8") as f:
+        f.write(self_intro)
+    print("file saved")
